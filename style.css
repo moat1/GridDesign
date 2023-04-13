@@ -7,12 +7,7 @@ body {
     'header header header' 100px
     'left   center right ' 1fr
     'footer footer footer' 200px
-    / 150px minmax(300px, 1fr) 200px;
-}
-h1 {
-  font-size: 20px;
-  margin: 0px;
-  padding: 10px;
+    / 250px minmax(300px, 1fr) 200px;
 }
 /* ここからHeader */
 header {
@@ -23,15 +18,43 @@ header {
 .siteTitle {
   font-size: 40px;
 }
-/* ここからCenter */
-main {
-  grid-area: center;
-  background-color: rgb(245, 245, 245);
-}
 /* ここからNav */
 nav {
   grid-area: left;
   background-color: rgb(235, 235, 235);
+  display: grid;
+  grid-template:
+    '... ...   ...' 10px
+    '... title ...' 20px
+    '... ...   ...' 5px
+    '... lists ...' 1fr
+    '... ...   ...' 10px
+    / 20px 1fr 20px;
+}
+nav h1 {
+  grid-area: title;
+  font-size: 20px;
+  margin: 0px;
+  padding: 10px 0px;
+}
+nav ul {
+  grid-area: lists;
+  padding: 0px;
+}
+nav li {
+  padding: 10px;
+  font-size: 18px;
+  list-style: none;
+  border-radius: 5px;
+}
+nav li:hover {
+  background-color: rgb(255, 255, 255);
+  transition: 0.5s;
+}
+/* ここからCenter */
+main {
+  grid-area: center;
+  background-color: rgb(245, 245, 245);
 }
 /* ここからAside */
 aside {
@@ -48,8 +71,8 @@ footer {
   body {
     grid-template:
       'header' 100px
-      'center' 1fr
       'left  '
+      'center' 1fr
       'right '
       'footer' 200px;
   }
