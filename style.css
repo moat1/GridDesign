@@ -1,0 +1,56 @@
+body {
+  font-size: 2rem;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template:
+    'header header header' 100px
+    'left   center right ' 1fr
+    'footer footer footer' 200px
+    / 150px minmax(300px, 1fr) 200px;
+}
+h1 {
+  font-size: 20px;
+  margin: 0px;
+  padding: 10px;
+}
+/* ここからHeader */
+header {
+  grid-area: header;
+  display: grid;
+  place-items: center;
+}
+.siteTitle {
+  font-size: 40px;
+}
+/* ここからCenter */
+main {
+  grid-area: center;
+  background-color: rgb(245, 245, 245);
+}
+/* ここからNav */
+nav {
+  grid-area: left;
+  background-color: rgb(235, 235, 235);
+}
+/* ここからAside */
+aside {
+  grid-area: right;
+  background-color: rgb(225, 225, 225);
+}
+/* ここからHeader */
+footer {
+  grid-area: footer;
+  background-color: rgb(215, 215, 215);
+}
+/* ここからレスポンシブ対応 */
+@media screen and (max-width: 1000px) {
+  body {
+    grid-template:
+      'header' 100px
+      'center' 1fr
+      'left  '
+      'right '
+      'footer' 200px;
+  }
+}
