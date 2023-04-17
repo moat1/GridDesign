@@ -1,0 +1,31 @@
+@mixin codeColor {
+  color: white;
+  background-color: rgb(46, 46, 46);
+  .yellow1 {
+    color: rgb(231, 204, 0);
+  }
+  .yellow2 {
+    color: rgb(255, 255, 0);
+  }
+  .yellow3 {
+    color: rgb(249, 255, 137);
+  }
+  .green1 {
+    color: rgb(50, 146, 45);
+  }
+  .green2 {
+    color: rgb(127, 208, 110);
+  }
+  .blue {
+    color: rgb(93, 155, 255);
+  }
+  .lightBlue {
+    color: rgb(142, 211, 248);
+  }
+  .orange {
+    color: rgb(234, 133, 10);
+  }
+  .gray {
+    color: rgb(135, 135, 135);
+  }
+}

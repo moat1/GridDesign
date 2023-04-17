@@ -1,35 +1,27 @@
+@charset "UTF-8";
 body {
   font-size: 2rem;
   margin: 0 auto;
   min-height: 100vh;
   display: grid;
-  grid-template:
-    'header header header' 100px
-    'left   center right ' 1fr
-    'footer footer footer' 200px
-    / 250px minmax(300px, 1fr) 200px;
+  grid-template: "header header header" 100px "left   center right " 1fr "footer footer footer" 200px/250px minmax(300px, 1fr) 200px;
 }
-/* ここからHeader */
+
 header {
   grid-area: header;
   display: grid;
   place-items: center;
 }
-.siteTitle {
+header .siteTitle {
   font-size: 40px;
 }
-/* ここからNav */
+
+/* ここからナビゲーション */
 nav {
   grid-area: left;
   background-color: rgb(235, 235, 235);
   display: grid;
-  grid-template:
-    '... ...   ...' 10px
-    '... title ...' 20px
-    '... ...   ...' 5px
-    '... lists ...' 1fr
-    '... ...   ...' 10px
-    / 20px 1fr 20px;
+  grid-template: "... ...   ..." 10px "... title ..." 20px "... ...   ..." 5px "... lists ..." 1fr "... ...   ..." 10px/20px 1fr 20px;
 }
 nav h1 {
   grid-area: title;
@@ -41,17 +33,18 @@ nav ul {
   grid-area: lists;
   padding: 0px;
 }
-nav li {
+nav ul li {
   padding: 10px;
   font-size: 18px;
   list-style: none;
   border-radius: 5px;
 }
-nav li:hover {
+nav ul li:hover {
   background-color: rgb(255, 255, 255);
   transition: 0.5s;
 }
-/* ここからCenter */
+
+/* ここからメイン*/
 main {
   grid-area: center;
   background-color: rgb(245, 245, 245);
@@ -73,11 +66,11 @@ main p {
   margin: 0px;
   padding: 10px;
 }
-.quote {
+main .quote {
   padding: 10px;
   border: 1px solid rgb(200, 200, 200);
 }
-main blockquote {
+main .quote blockquote {
   font-size: 16px;
   margin: 0px;
   padding: 10px;
@@ -93,7 +86,7 @@ main a:hover {
 main ol {
   font-size: 18px;
 }
-.code {
+main .code {
   background-color: rgb(213, 213, 213);
   display: grid;
   place-items: left;
@@ -102,86 +95,83 @@ main ol {
   color: white;
   background-color: rgb(46, 46, 46);
 }
-.parent {
+main .code .yellow1 {
+  color: rgb(231, 204, 0);
+}
+main .code .yellow2 {
+  color: rgb(255, 255, 0);
+}
+main .code .yellow3 {
+  color: rgb(249, 255, 137);
+}
+main .code .green1 {
+  color: rgb(50, 146, 45);
+}
+main .code .green2 {
+  color: rgb(127, 208, 110);
+}
+main .code .blue {
+  color: rgb(93, 155, 255);
+}
+main .code .lightBlue {
+  color: rgb(142, 211, 248);
+}
+main .code .orange {
+  color: rgb(234, 133, 10);
+}
+main .code .gray {
+  color: rgb(135, 135, 135);
+}
+main .grid-template_columns_parent {
   height: 100px;
   background-color: aliceblue;
   display: grid;
   grid-template-columns: 2fr 1fr;
 }
-.child {
+main .grid-template_columns_parent .grid-template_columns_child {
   border: 0.5px solid rgb(0, 0, 0);
   display: grid;
   place-items: center;
 }
-.grid_template_parent {
+main .grid_template_parent {
   height: 300px;
   width: 100%;
   background-color: aliceblue;
   display: grid;
-  grid-template:
-    'header header header' 50px
-    'nav    main   aside' 1fr
-    'footer footer footer' 50px
-    / 100px 1fr 100px;
+  grid-template: "header header header" 50px "nav    main   aside" 1fr "footer footer footer" 50px/100px 1fr 100px;
 }
-.grid_template_header {
+main .grid_template_parent .grid_template_header {
   grid-area: header;
   display: grid;
   place-items: center;
   border: 0.5px solid rgb(0, 0, 0);
 }
-.grid_template_nav {
+main .grid_template_parent .grid_template_nav {
   grid-area: nav;
   display: grid;
   place-items: center;
   border: 0.5px solid rgb(0, 0, 0);
 }
-.grid_template_main {
+main .grid_template_parent .grid_template_main {
   grid-area: main;
   display: grid;
   place-items: center;
   border: 0.5px solid rgb(0, 0, 0);
 }
-.grid_template_aside {
+main .grid_template_parent .grid_template_aside {
   grid-area: aside;
   display: grid;
   place-items: center;
   border: 0.5px solid rgb(0, 0, 0);
 }
-.grid_template_footer {
+main .grid_template_parent .grid_template_footer {
   grid-area: footer;
   display: grid;
   place-items: center;
   border: 0.5px solid rgb(0, 0, 0);
 }
-.yellow1 {
-  color: rgb(231, 204, 0);
-}
-.yellow2 {
-  color: rgb(255, 255, 0);
-}
-.yellow3 {
-  color: rgb(249, 255, 137);
-}
-.green1 {
-  color: rgb(50, 146, 45);
-}
-.green2 {
-  color: rgb(127, 208, 110);
-}
-.blue {
-  color: rgb(93, 155, 255);
-}
-.lightBlue {
-  color: rgb(142, 211, 248);
-}
-.orange {
-  color: rgb(234, 133, 10);
-}
-.gray {
-  color: rgb(135, 135, 135);
-}
-/* ここからAside */
+
+/* ここからアサイド */
 aside {
   grid-area: right;
   background-color: rgb(225, 225, 225);
@@ -190,7 +180,6 @@ aside {
 aside h1 {
   font-size: 22px;
   margin: 0px;
-  /* padding: 10px; */
 }
 aside ul {
   list-style: none;
@@ -208,18 +197,16 @@ aside ul li a:hover {
   color: rgb(94, 131, 242);
   border-bottom: 1px solid rgb(94, 131, 242);
 }
-/* ここからFooter */
+
+/* ここからフッター */
 footer {
   grid-area: footer;
   background-color: rgb(215, 215, 215);
   display: grid;
-  grid-template:
-    'logo       links     ...' 3fr
-    'copyright  copyright copyright' 1fr
-    /250px 1fr 250px;
+  grid-template: "logo       links     ..." 3fr "copyright  copyright copyright" 1fr/250px 1fr 250px;
   padding: 0px 10px;
 }
-.footerTitle {
+footer .footerTitle {
   grid-area: logo;
   font-size: 25px;
   display: grid;
@@ -250,14 +237,10 @@ footer small {
   place-items: center;
   border-top: 0.5px solid rgb(109, 109, 109);
 }
+
 /* ここからレスポンシブ対応 */
 @media screen and (max-width: 1000px) {
   body {
-    grid-template:
-      'header' 100px
-      'left  '
-      'center' 1fr
-      'right '
-      'footer' 200px;
+    grid-template: "header" 100px "left  " "center" 1fr "right " "footer" 200px;
   }
-}
+}/*# sourceMappingURL=style.css.map */
