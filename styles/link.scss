@@ -1,0 +1,8 @@
+@mixin link {
+  color: rgb(65, 109, 242);
+  text-decoration: none;
+  &:hover {
+    color: rgb(94, 131, 242);
+    border-bottom: 1px solid rgb(94, 131, 242);
+  }
+}

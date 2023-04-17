@@ -1,0 +1,8 @@
+header {
+  grid-area: header;
+  display: grid;
+  place-items: center;
+}
+header .siteTitle {
+  font-size: 40px;
+}/*# sourceMappingURL=header.css.map */

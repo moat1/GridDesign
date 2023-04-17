@@ -1,0 +1,225 @@
+@use 'areaH1';
+@use 'codeColor';
+@use 'link';
+
+body {
+  font-size: 2rem;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template:
+    'header header header' 100px
+    'left   center right ' 1fr
+    'footer footer footer' 200px
+    / 250px minmax(300px, 1fr) 200px;
+}
+
+// ここからヘッダー
+header {
+  grid-area: header;
+  display: grid;
+  place-items: center;
+  .siteTitle {
+    font-size: 40px;
+  }
+}
+
+/* ここからナビゲーション */
+nav {
+  grid-area: left;
+  background-color: rgb(235, 235, 235);
+  display: grid;
+  grid-template:
+    '... ...   ...' 10px
+    '... title ...' 20px
+    '... ...   ...' 5px
+    '... lists ...' 1fr
+    '... ...   ...' 10px
+    / 20px 1fr 20px;
+  h1 {
+    grid-area: title;
+    @include areaH1;
+  }
+  ul {
+    grid-area: lists;
+    padding: 0px;
+    li {
+      padding: 10px;
+      font-size: 18px;
+      list-style: none;
+      border-radius: 5px;
+      &:hover {
+        background-color: rgb(255, 255, 255);
+        transition: 0.5s;
+      }
+    }
+  }
+}
+
+/* ここからメイン*/
+main {
+  grid-area: center;
+  background-color: rgb(245, 245, 245);
+  padding: 20px;
+  h1 {
+    font-size: 22px;
+    margin: 30px 0px 0px 0px;
+    padding: 10px;
+    border-bottom: 1px solid black;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 0px;
+    padding: 10px;
+  }
+  p {
+    font-size: 18px;
+    margin: 0px;
+    padding: 10px;
+  }
+  .quote {
+    padding: 10px;
+    border: 1px solid rgb(200, 200, 200);
+    blockquote {
+      font-size: 16px;
+      margin: 0px;
+      padding: 10px;
+    }
+  }
+  a {
+    @include link;
+  }
+  ol {
+    font-size: 18px;
+  }
+  .code {
+    background-color: rgb(213, 213, 213);
+    display: grid;
+    place-items: left;
+    font-size: 14px;
+    font-weight: 100;
+    @include codeColor;
+  }
+  .grid-template_columns_parent {
+    height: 100px;
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    .grid-template_columns_child {
+      border: 0.5px solid rgb(0, 0, 0);
+      display: grid;
+      place-items: center;
+    }
+  }
+  .grid_template_parent {
+    height: 300px;
+    width: 100%;
+    background-color: aliceblue;
+    display: grid;
+    grid-template:
+      'header header header' 50px
+      'nav    main   aside' 1fr
+      'footer footer footer' 50px
+      / 100px 1fr 100px;
+    .grid_template_header {
+      grid-area: header;
+      display: grid;
+      place-items: center;
+      border: 0.5px solid rgb(0, 0, 0);
+    }
+    .grid_template_nav {
+      grid-area: nav;
+      display: grid;
+      place-items: center;
+      border: 0.5px solid rgb(0, 0, 0);
+    }
+    .grid_template_main {
+      grid-area: main;
+      display: grid;
+      place-items: center;
+      border: 0.5px solid rgb(0, 0, 0);
+    }
+    .grid_template_aside {
+      grid-area: aside;
+      display: grid;
+      place-items: center;
+      border: 0.5px solid rgb(0, 0, 0);
+    }
+    .grid_template_footer {
+      grid-area: footer;
+      display: grid;
+      place-items: center;
+      border: 0.5px solid rgb(0, 0, 0);
+    }
+  }
+}
+
+/* ここからアサイド */
+aside {
+  grid-area: right;
+  background-color: rgb(225, 225, 225);
+  padding: 20px;
+  h1 {
+    @include areaH1;
+  }
+  ul {
+    list-style: none;
+    font-size: 16px;
+    padding: 0px;
+    li {
+      padding: 10px;
+      a {
+        @include link;
+      }
+    }
+  }
+}
+
+/* ここからフッター */
+footer {
+  grid-area: footer;
+  background-color: rgb(215, 215, 215);
+  display: grid;
+  grid-template:
+    'logo       links     ...' 3fr
+    'copyright  copyright copyright' 1fr
+    /250px 1fr 250px;
+  padding: 0px 10px;
+  .footerTitle {
+    grid-area: logo;
+    font-size: 25px;
+    display: grid;
+    place-items: center;
+  }
+  ul {
+    grid-area: links;
+    list-style: none;
+    font-size: 18px;
+    padding: 30px 0px;
+    margin: 0px;
+    display: grid;
+    place-items: center;
+    li a {
+      @include link;
+    }
+  }
+  small {
+    grid-area: copyright;
+    font-size: 16px;
+    color: rgb(111, 111, 111);
+    display: grid;
+    place-items: center;
+    border-top: 0.5px solid rgb(109, 109, 109);
+  }
+}
+/* ここからレスポンシブ対応 */
+@media screen and (max-width: 1000px) {
+  body {
+    grid-template:
+      'header' 100px
+      'left  '
+      'center' 1fr
+      'right '
+      'footer' 200px;
+  }
+}

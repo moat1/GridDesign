@@ -4,13 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles/style.css" />
     <title>GridDesign</title>
   </head>
   <body>
+    <!-- ここからヘッダー -->
     <header>
       <div class="siteTitle">GridDesign</div>
     </header>
+    <!-- ここからナビゲーション -->
     <nav>
       <h1>Navigation</h1>
       <ul>
@@ -22,6 +24,7 @@
         <li>gridの注意点</li>
       </ul>
     </nav>
+    <!-- ここからメイン -->
     <main>
       <h1>はじめに</h1>
       <p>
@@ -29,7 +32,7 @@
         WEB Docs（以下MDN）等のサイトをご覧ください。
       </p>
       <p>
-        また、本サイトもグリッドによりレイアウトを組み立てています。ソースコードは<a
+        また、本サイトもグリッドによりレイアウトを組み立てています。本サイトのソースコードは<a
           href="https://github.com/moat1/GridDesign"
           >こちら</a
         >から。
@@ -81,9 +84,9 @@
             <span class="blue">grid-template-columns</span>: 2fr 1fr;
         </code>
       </pre>
-      <div class="parent">
-        <div class="child">2</div>
-        <div class="child">1</div>
+      <div class="grid-template_columns_parent">
+        <div class="grid-template_columns_child">2</div>
+        <div class="grid-template_columns_child">1</div>
       </div>
       <h1>行と列の一括指定（grid-template）</h1>
       <p>
@@ -126,9 +129,10 @@
         Explorerは2022年6月15日に一部を除きサポートを終了（<a
           href="https://www.microsoft.com/ja-jp/download/internet-explorer.aspx"
           >Microsoftページ</a
-        >）しているため、どうしてもInternetExplorerに対応しなければいけない状況以外は利用できる。
+        >）しているため、どうしてもInternetExplorerへの対応が必須でない限りは利用できる。
       </p>
     </main>
+    <!-- ここからアサイド -->
     <aside>
       <h1>参考</h1>
       <ul>
@@ -144,11 +148,9 @@
             >Microsoft ホームページ</a
           >
         </li>
-        <li><a href=""></a></li>
-        <li><a href=""></a></li>
-        <li><a href=""></a></li>
       </ul>
     </aside>
+    <!-- ここからフッター -->
     <footer>
       <div class="footerTitle">GridDesign</div>
       <ul>
