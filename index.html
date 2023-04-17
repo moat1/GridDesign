@@ -14,18 +14,140 @@
     <nav>
       <h1>Navigation</h1>
       <ul>
-        <li>Gridの基本</li>
-        <li>列の指定(grid-template-columns)</li>
-        <li>行の指定(grid-template-rows)</li>
-        <li>行と列の一括指定(grid-template)</li>
-        <li>エリアとグリッドアイテムの紐付け(grid-area)</li>
+        <li>はじめに</li>
+        <li>グリッドとは何か？</li>
+        <li>グリッドコンテナー</li>
+        <li>行と列の一括指定（grid-template）</li>
+        <li>grid-area</li>
+        <li>gridの注意点</li>
       </ul>
     </nav>
     <main>
-      <h1>Contents</h1>
+      <h1>はじめに</h1>
+      <p>
+        このサイトはCSSのグリッドのについて紹介しています。図を用いた視覚的にわかるようになっています。グリッドについてのより詳細な情報を知りたい方はウェブ標準及びMozillaプロジェクトの開発文書のための公式ウェブサイトであるMDN
+        WEB Docs（以下MDN）等のサイトをご覧ください。
+      </p>
+      <p>
+        また、本サイトもグリッドによりレイアウトを組み立てています。ソースコードは<a
+          href="https://github.com/moat1/GridDesign"
+          >こちら</a
+        >から。
+      </p>
+      <h1>グリッドとは何か？</h1>
+      <p>MDNの説明によるとグリッドとは</p>
+      <div class="quote">
+        <blockquote>
+          「グリッドは、列と行を定義する水平線と垂直線の集合が交差したものです。要素をグリッド上の行と列の中に配置することができます。」（参照：<a
+            href="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#%E3%82%B0%E3%83%AA%E3%83%83%E3%83%89%E3%81%A8%E3%81%AF%E4%BD%95%E3%81%8B%EF%BC%9F"
+            >MDN</a
+          >）
+        </blockquote>
+      </div>
+      <p>
+        と説明されている。エディタ上で視覚的に記述できるため、直感的に操作ができる。
+      </p>
+      <p>
+        グリッドのサイズはpxでサイズを固定する方法やfrを用いて可変的にする方法がある。
+      </p>
+      <p>
+        アイテムを配置する際はグリッドの線番号や名前を用いることで位置を指定し、柔軟に変更・追加を行える。また、同じ領域内に複数のアイテムを配置することもできる。
+      </p>
+      <h1>グリッドコンテナー</h1>
+      <p>
+        グリッドコンテナーはグリッド全体を囲む要素であり、要素に対して display:
+        grid か display: inline-grid
+        を指定する。この操作によってHTMLの直接の子要素がグリッド要素となる。
+      </p>
+      <pre class="code">
+        <code>
+            <span class="yellow1">body</span> <span class="yellow2">{</span>
+                <span class="green1">//HTMLの直接の子を グリッド要素とする</span>
+                <span class="blue">display</span>: <span class="yellow3">grid</span>;
+                <span class="green1">//以降、子要素に関する処理...</span>
+            <span class="yellow2">}</span>
+        </code>
+    </pre>
+      <h1>グリッドトラック</h1>
+      <p>
+        grid-template-columnsとgrid-template-rowsプロパティがあり、grid-template-columnsは列を、grid-template-rowsは行のサイズを指定できる。
+      </p>
+      <p>
+        単位frは柔軟にサイズを変更することができ、利用可能な空間の比を表している。例えば、「2fr
+        1fr」とあれば2:1の比率となる。
+      </p>
+      <pre class="code">
+        <code>
+            <span class="blue">grid-template-columns</span>: 2fr 1fr;
+        </code>
+      </pre>
+      <div class="parent">
+        <div class="child">2</div>
+        <div class="child">1</div>
+      </div>
+      <h1>行と列の一括指定（grid-template）</h1>
+      <p>
+        grid-template-columnsとgrid-template-rowsではそれぞれ列と行を指定していたが、grid-templateを使うことで一括で指定することができる。
+      </p>
+      <pre class="code">
+        <code>
+            <span class="blue">grid-template</span>:
+                    <span class="orange">"header header header"</span> <span class="green2">50px</span>
+                    <span class="orange">"nav    main   aside"</span> <span class="green2">1fr</span>
+                    <span class="orange">"footer footer footer"</span> <span class="green2">50px</span>
+                    / <span class="green2">100px 1fr 100px</span>;
+        </code>
+      </pre>
+      <div class="grid_template_parent">
+        <div class="grid_template_header">header</div>
+        <div class="grid_template_nav">nav</div>
+        <div class="grid_template_main">main</div>
+        <div class="grid_template_aside">aside</div>
+        <div class="grid_template_footer">footer</div>
+      </div>
+      <h1>grid-area</h1>
+      <p>
+        上記のgrid-templateではheaderやnavなどエリア名をつけた。このエリア名は自由に決められる。
+      </p>
+      <p>
+        次に対応させたいタグにエイリア名を紐付ける。headerタグにエリア名headerを対応させたい場合は次のように記述する。
+      </p>
+      <pre class="code">
+        <code>
+            <span class="yellow1">header</span> <span class="yellow2">{</span>
+                <span class="blue">grid-area</span>: header;
+            <span class="yellow2">}</span>
+        </code>
+      </pre>
+      <h1>gridの注意点</h1>
+      <p>
+        注意点としてInternet
+        Explorerに対応していない点が挙げられる。しかし、Internet
+        Explorerは2022年6月15日に一部を除きサポートを終了（<a
+          href="https://www.microsoft.com/ja-jp/download/internet-explorer.aspx"
+          >Microsoftページ</a
+        >）しているため、どうしてもInternetExplorerに対応しなければいけない状況以外は利用できる。
+      </p>
     </main>
     <aside>
-      <h1>Right</h1>
+      <h1>参考</h1>
+      <ul>
+        <li>
+          <a
+            href="https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout#%E3%82%B0%E3%83%AA%E3%83%83%E3%83%89%E3%81%A8%E3%81%AF%E4%BD%95%E3%81%8B%EF%BC%9F"
+            >MDN</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.microsoft.com/ja-jp/download/internet-explorer.aspx"
+            >Microsoft ホームページ</a
+          >
+        </li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+      </ul>
     </aside>
     <footer>
       <div class="footerTitle">GridDesign</div>
