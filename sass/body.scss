@@ -1,0 +1,11 @@
+body {
+  font-size: 2rem;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template:
+    'header header header' 100px
+    'left   center right ' 1fr
+    'footer footer footer' 200px
+    / 250px minmax(300px, 1fr) 200px;
+}

@@ -1,0 +1,26 @@
+nav {
+  grid-area: left;
+  background-color: rgb(235, 235, 235);
+  display: grid;
+  grid-template: "... ...   ..." 10px "... title ..." 20px "... ...   ..." 5px "... lists ..." 1fr "... ...   ..." 10px/20px 1fr 20px;
+}
+nav h1 {
+  grid-area: title;
+  font-size: 22px;
+  margin: 0px;
+  padding: 10px 0px;
+}
+nav ul {
+  grid-area: lists;
+  padding: 0px;
+}
+nav ul li {
+  padding: 10px;
+  font-size: 18px;
+  list-style: none;
+  border-radius: 5px;
+}
+nav ul li:hover {
+  background-color: rgb(255, 255, 255);
+  transition: 0.5s;
+}/*# sourceMappingURL=nav.css.map */

@@ -1,0 +1,26 @@
+aside {
+  grid-area: right;
+  background-color: rgb(225, 225, 225);
+  padding: 20px;
+  h1 {
+    font-size: 22px;
+    margin: 0px;
+    padding: 10px 0px;
+  }
+  ul {
+    list-style: none;
+    font-size: 16px;
+    padding: 0px;
+    li {
+      padding: 10px;
+      a {
+        color: rgb(65, 109, 242);
+        text-decoration: none;
+        &:hover {
+          color: rgb(94, 131, 242);
+          border-bottom: 1px solid rgb(94, 131, 242);
+        }
+      }
+    }
+  }
+}

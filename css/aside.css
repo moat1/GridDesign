@@ -1,0 +1,26 @@
+aside {
+  grid-area: right;
+  background-color: rgb(225, 225, 225);
+  padding: 20px;
+}
+aside h1 {
+  font-size: 22px;
+  margin: 0px;
+  padding: 10px 0px;
+}
+aside ul {
+  list-style: none;
+  font-size: 16px;
+  padding: 0px;
+}
+aside ul li {
+  padding: 10px;
+}
+aside ul li a {
+  color: rgb(65, 109, 242);
+  text-decoration: none;
+}
+aside ul li a:hover {
+  color: rgb(94, 131, 242);
+  border-bottom: 1px solid rgb(94, 131, 242);
+}/*# sourceMappingURL=aside.css.map */
