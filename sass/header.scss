@@ -1,0 +1,8 @@
+header {
+  grid-area: header;
+  display: grid;
+  place-items: center;
+  .siteTitle {
+    font-size: 40px;
+  }
+}

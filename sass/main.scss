@@ -1,0 +1,128 @@
+main {
+  grid-area: center;
+  background-color: rgb(245, 245, 245);
+  padding: 20px;
+  h1 {
+    font-size: 22px;
+    margin: 30px 0px 0px 0px;
+    padding: 10px;
+    border-bottom: 1px solid black;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 0px;
+    padding: 10px;
+  }
+  p {
+    font-size: 18px;
+    margin: 0px;
+    padding: 10px;
+  }
+  .quote {
+    padding: 10px;
+    border: 1px solid rgb(200, 200, 200);
+    blockquote {
+      font-size: 16px;
+      margin: 0px;
+      padding: 10px;
+    }
+  }
+  a {
+    color: rgb(65, 109, 242);
+    text-decoration: none;
+    &:hover {
+      color: rgb(94, 131, 242);
+      border-bottom: 1px solid rgb(94, 131, 242);
+    }
+  }
+  ol {
+    font-size: 18px;
+  }
+  .code {
+    background-color: rgb(32, 32, 32);
+    display: grid;
+    place-items: left;
+    font-size: 14px;
+    font-weight: 100;
+    color: white;
+    .yellow1 {
+      color: rgb(231, 204, 0);
+    }
+    .yellow2 {
+      color: rgb(255, 255, 0);
+    }
+    .yellow3 {
+      color: rgb(249, 255, 137);
+    }
+    .green1 {
+      color: rgb(50, 146, 45);
+    }
+    .green2 {
+      color: rgb(127, 208, 110);
+    }
+    .blue {
+      color: rgb(93, 155, 255);
+    }
+    .lightBlue {
+      color: rgb(142, 211, 248);
+    }
+    .orange {
+      color: rgb(234, 133, 10);
+    }
+    .gray {
+      color: rgb(135, 135, 135);
+    }
+  }
+  .grid-template_columns_parent {
+    height: 100px;
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    .grid-template_columns_child {
+      border: 0.5px solid rgb(0, 0, 0);
+      display: grid;
+      place-items: center;
+    }
+  }
+  .grid_template_parent {
+    height: 300px;
+    width: 100%;
+    background-color: aliceblue;
+    display: grid;
+    grid-template:
+      'header header header' 50px
+      'nav    main   aside' 1fr
+      'footer footer footer' 50px
+      / 100px 1fr 100px;
+    .grid_template_header {
+      grid-area: header;
+      display: grid;
+      place-items: center;
+      border: 0.5px solid rgb(0, 0, 0);
+    }
+    .grid_template_nav {
+      grid-area: nav;
+      display: grid;
+      place-items: center;
+      border: 0.5px solid rgb(0, 0, 0);
+    }
+    .grid_template_main {
+      grid-area: main;
+      display: grid;
+      place-items: center;
+      border: 0.5px solid rgb(0, 0, 0);
+    }
+    .grid_template_aside {
+      grid-area: aside;
+      display: grid;
+      place-items: center;
+      border: 0.5px solid rgb(0, 0, 0);
+    }
+    .grid_template_footer {
+      grid-area: footer;
+      display: grid;
+      place-items: center;
+      border: 0.5px solid rgb(0, 0, 0);
+    }
+  }
+}

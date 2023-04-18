@@ -1,0 +1,10 @@
+@media screen and (max-width: 960px) {
+  body {
+    grid-template:
+      'header' 100px
+      'left  '
+      'center' 1fr
+      'right '
+      'footer' 200px;
+  }
+}
